@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: 98a9c0915de485f48b182d1ef91b7983
+guid: b7a1e093de129d946ad1318955468f07
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 3304559575341349533
-    second: Lem Sprite_0
-  - first:
-      213: 3117662251471573002
-    second: Lem Sprite_1
-  - first:
-      213: -2707193106319039625
-    second: Lem Sprite_2
-  - first:
-      213: -853192722691622024
-    second: Lem Sprite_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -93,7 +81,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Standalone
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -148,85 +136,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lem Sprite_0
+      name: Lem_Idle_Sheet_0
       rect:
         serializedVersion: 2
-        x: 111
-        y: 103
-        width: 861
-        height: 1045
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 86
+        y: 0
+        width: 580
+        height: 1147
+      alignment: 9
+      pivot: {x: 0.4, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d9a365bec672cdd20800000000000000
-      internalID: 3304559575341349533
+      spriteID: 845af017cbbf3754eb60321d4bd3b116
+      internalID: -1357253178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lem Sprite_1
+      name: Lem_Idle_Sheet_1
       rect:
         serializedVersion: 2
-        x: 972
-        y: 103
-        width: 828
-        height: 1045
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 771
+        y: 0
+        width: 575
+        height: 1147
+      alignment: 9
+      pivot: {x: 0.4, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a009b94bc49244b20800000000000000
-      internalID: 3117662251471573002
+      spriteID: e75c5d8d59f7b4c4494def135632a194
+      internalID: 745704834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lem Sprite_2
+      name: Lem_Idle_Sheet_2
       rect:
         serializedVersion: 2
-        x: 1881
-        y: 103
-        width: 877
-        height: 1045
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 8, w: 0}
+        x: 1415
+        y: 0
+        width: 566
+        height: 1147
+      alignment: 9
+      pivot: {x: 0.4, y: 0.03}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 773a77f863e1e6ad0800000000000000
-      internalID: -2707193106319039625
+      spriteID: 752f8c450f2edac40bc59e506c61c6b4
+      internalID: -1846191643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lem Sprite_3
+      name: Lem_Idle_Sheet_3
       rect:
         serializedVersion: 2
-        x: 2746
-        y: 108
-        width: 817
-        height: 1047
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 2027
+        y: 0
+        width: 575
+        height: 1147
+      alignment: 9
+      pivot: {x: 0.4, y: 0.03}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 87b74073db9d824f0800000000000000
-      internalID: -853192722691622024
+      spriteID: d9a7d98e6603fa3479dc8449f2969af7
+      internalID: 1590296987
       vertices: []
       indices: 
       edges: []
@@ -234,7 +222,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 394e08972e4464b40b619b17140c19f1
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -242,10 +230,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lem Sprite_0: 3304559575341349533
-      Lem Sprite_1: 3117662251471573002
-      Lem Sprite_2: -2707193106319039625
-      Lem Sprite_3: -853192722691622024
+      Lem_Idle_Sheet_0: -1357253178
+      Lem_Idle_Sheet_1: 745704834
+      Lem_Idle_Sheet_2: -1846191643
+      Lem_Idle_Sheet_3: 1590296987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

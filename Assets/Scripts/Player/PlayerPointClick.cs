@@ -10,13 +10,15 @@ public class PlayerPointClick : MonoBehaviour, IDataGrabber
     private NavMeshAgent agent;
     private SpriteRenderer spriteRenderer;
     public GameObject inventoryGO;
-    public float minScale = 0.6f;  // Minimum scale factor
+    /*public float minScale = 0.6f;  // Minimum scale factor
     public float maxScale = 1.0f;  // Maximum scale factor
-    public float scaleThreshold = 20.0f;  // Where should sprite be at max scale i made this up btw
+    public float scaleThreshold = 20.0f;  // Where should sprite be at max scale i made this up btw*/
 
-    public Animator animator;
+    public Animator camAnimator;
     int PlayerCam = 0;
     int DialogueCam = 0;
+
+
     
 
     public void LoadData(GameData data)
@@ -38,9 +40,8 @@ public class PlayerPointClick : MonoBehaviour, IDataGrabber
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
-        animator = GetComponent<Animator>(); 
-        animator.enabled = true;
-        
+        camAnimator = GetComponent<Animator>();
+        camAnimator.enabled = true;
 
         PlayerCam = 1;
 
@@ -49,11 +50,11 @@ public class PlayerPointClick : MonoBehaviour, IDataGrabber
     private void Update()
     {
         HandleMouseInput();
-        AdjustPerspective();
+        //AdjustPerspective();
         OpenInventory();
 
-        animator.SetInteger("PlayerCam", PlayerCam);
-        animator.SetInteger("DialogueCam", DialogueCam);
+        camAnimator.SetInteger("PlayerCam", PlayerCam);
+        camAnimator.SetInteger("DialogueCam", DialogueCam);
 
     }
 
@@ -65,13 +66,18 @@ public class PlayerPointClick : MonoBehaviour, IDataGrabber
             target = new Vector3(mousePosition.x, mousePosition.y, 0f);
             agent.SetDestination(new Vector3(target.x, target.y, 0f));
             HandleSpriteFlip();
+
         }
+
+
         else if (Input.GetMouseButtonDown(0) && !PauseMenu.instance.GetPauseStatus() && !GameManager.instance.lemCanMove)
-        {
-            if (DialogueManager.instance.currentNPC == null) return;
-            DialogueManager.instance.ContinueDialogue();
+            {
+                if (DialogueManager.instance.currentNPC == null) return;
+                DialogueManager.instance.ContinueDialogue();
+                
+            }
         }
-    }
+
 
     public void SetTarget(Vector3 targetPositionToSet)
     {
@@ -79,13 +85,13 @@ public class PlayerPointClick : MonoBehaviour, IDataGrabber
         agent.SetDestination(new Vector3(target.x, target.y, 0f));
     }
     
-    private void AdjustPerspective()
+    /*private void AdjustPerspective()
     {
         float currentYPosition = transform.position.y;
         float t = Mathf.InverseLerp(scaleThreshold, -10, currentYPosition); 
         float targetScale = Mathf.Lerp(minScale, maxScale, t);
         transform.localScale = new Vector3(targetScale, targetScale, 1);
-    }
+    }*/
 
     private void HandleSpriteFlip()
     {
