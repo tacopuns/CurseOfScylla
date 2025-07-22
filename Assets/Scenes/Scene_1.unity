@@ -154,8 +154,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1234668536}
   - {fileID: 275046845}
+  - {fileID: 1234668536}
   - {fileID: 692076459}
   - {fileID: 1832293425}
   - {fileID: 113160073}
@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 59013441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110.3, y: -6.54, z: 0}
+  m_LocalPosition: {x: 111.83, y: -6.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1382,14 +1382,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.8554356, y: -9.713462}
-      - {x: 4.6796584, y: -3.9534013}
-      - {x: 0.025349855, y: -1.1610624}
+    - - {x: 2.729983, y: -9.399809}
+      - {x: 3.4877706, y: -3.8906713}
+      - {x: -0.97834826, y: -1.0983319}
       - {x: -0.11096269, y: 13.9392395}
       - {x: -2.025588, y: 13.835514}
-      - {x: -2.0634866, y: -0.69222516}
-      - {x: -6.381031, y: -4.06682}
-      - {x: -6.2396307, y: -9.594549}
+      - {x: -9.704922, y: 2.6668937}
+      - {x: -10.030289, y: -2.0723002}
+      - {x: -5.189143, y: -2.8749378}
+      - {x: -5.1732173, y: -9.65728}
   m_UseDelaunayMesh: 0
 --- !u!114 &275046849
 MonoBehaviour:
@@ -2163,7 +2164,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97578fd513b14eb49a9ff44cf59bf6c8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 04006ae10bf00db4597802b99dd32303, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3209,13 +3210,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1983480566}
   - {fileID: 1141331085}
   - {fileID: 1275542941}
   - {fileID: 1355775428}
   - {fileID: 835269832}
   - {fileID: 805675173}
   - {fileID: 390076816}
-  - {fileID: 1983480566}
   - {fileID: 1297515761}
   - {fileID: 525849937}
   - {fileID: 1563757536}
@@ -4269,6 +4270,7 @@ GameObject:
   - component: {fileID: 552392763}
   - component: {fileID: 552392767}
   - component: {fileID: 552392768}
+  - component: {fileID: 552392769}
   m_Layer: 0
   m_Name: ClickableFF
   m_TagString: Untagged
@@ -4381,6 +4383,19 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 1d135f8eef496514b9cf725b1c14e9c1, type: 3}
   itemToAdd: {fileID: 8586634142944422792, guid: 9924cd7b50930c84ea0bd2daed00afd0, type: 3}
   objectName: FreakFish
+--- !u!114 &552392769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552392761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73c5385558a3a74fb9a22c7d8ca88cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 4
 --- !u!1 &552986925
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,7 +5412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &667196503
 Transform:
   m_ObjectHideFlags: 0
@@ -5626,12 +5641,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   confiner2D: {fileID: 1813697509}
   positions:
-  - {fileID: 461947476}
   - {fileID: 573376568}
-  - {fileID: 667196503}
-  - {fileID: 0}
+  - {fileID: 461947476}
   - {fileID: 11258991}
-  - {fileID: 0}
 --- !u!1 &692076457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6414,11 +6426,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultCursor: {fileID: 2800000, guid: 7ed26ef9469cfc74c92c52ce6ca73d40, type: 3}
-  interactCursor: {fileID: 0}
-  talkCursor: {fileID: 2800000, guid: 551ad53f9ccaa624799bcc98050ff712, type: 3}
-  inspectCursor: {fileID: 0}
-  teleportCursor: {fileID: 2800000, guid: 3667cd055b304d64dbcef8f36a207b74, type: 3}
   hotspot: {x: 0, y: 0}
+  interactFrames: []
+  talkFrames:
+  - {fileID: 2800000, guid: 551ad53f9ccaa624799bcc98050ff712, type: 3}
+  - {fileID: 2800000, guid: af05c3276a398064e81464b19d7cdb9b, type: 3}
+  inspectFrames: []
+  teleportFrames:
+  - {fileID: 2800000, guid: 3667cd055b304d64dbcef8f36a207b74, type: 3}
+  - {fileID: 2800000, guid: 6c0b17962a8165e478a595b9a9d19ccb, type: 3}
+  frameRate: 0.6
 --- !u!4 &767404487
 Transform:
   m_ObjectHideFlags: 0
@@ -6633,7 +6650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleports: 1
   teleportLocation: {fileID: 1131419692}
-  nextCameraConfiner: {fileID: 879327405}
+  nextCameraConfiner: {fileID: 1355775431}
   cameraPosIndex: 1
   cameraXOffset: 0
   cameraYOffset: 0
@@ -7148,6 +7165,7 @@ GameObject:
   - component: {fileID: 844482192}
   - component: {fileID: 844482196}
   - component: {fileID: 844482197}
+  - component: {fileID: 844482198}
   m_Layer: 0
   m_Name: ClickableCar
   m_TagString: Untagged
@@ -7269,6 +7287,19 @@ MonoBehaviour:
   characterName: Car
   index: 0
   indexOfDialogue: 0
+--- !u!114 &844482198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844482190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e73c5385558a3a74fb9a22c7d8ca88cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorType: 2
 --- !u!1 &846076728
 GameObject:
   m_ObjectHideFlags: 0
@@ -9875,7 +9906,7 @@ Transform:
   m_GameObject: {fileID: 1131419692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.97, y: -2.37, z: 0}
+  m_LocalPosition: {x: 101, y: -2.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17786,9 +17817,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.4, y: -3.2483292}
-      - {x: 0.57422245, y: 27.347172}
-      - {x: -4.7640395, y: 26.393528}
+    - - {x: 4.7815156, y: -3.2483292}
+      - {x: 0.57422245, y: 40.87326}
+      - {x: -4.904939, y: 40.905895}
       - {x: -4.93, y: -3.19}
   m_UseDelaunayMesh: 0
 --- !u!114 &1983480570

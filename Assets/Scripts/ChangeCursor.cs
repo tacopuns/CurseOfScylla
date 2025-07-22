@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ChangeCursor : MonoBehaviour
 {
+    //attach this script to interactable objects and select cursor type
     public CursorType cursorType = CursorType.Interact;
+    
 
     private void OnMouseEnter()
     {

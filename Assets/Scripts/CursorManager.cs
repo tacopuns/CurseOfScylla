@@ -1,46 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CursorManager : MonoBehaviour
 {
     public static CursorManager Instance;
 
-    [Header("Cursor Textures")]
+    [Header("Static Cursors")]
     public Texture2D defaultCursor;
-    public Texture2D interactCursor;
-    public Texture2D talkCursor;
-    public Texture2D inspectCursor;
-    public Texture2D teleportCursor;
-
     public Vector2 hotspot = Vector2.zero;
 
-    private Texture2D currentCursor;
+    [Header("Animated Cursor Frames")]
+    public Texture2D[] interactFrames;
+    public Texture2D[] talkFrames;
+    public Texture2D[] inspectFrames;
+    public Texture2D[] teleportFrames;
+
+    private Dictionary<string, Texture2D[]> animatedCursors;
+    private Texture2D[] currentFrames;
+    private int currentFrameIndex;
+    private float frameTimer;
+    public float frameRate = 0.5f;
+
+    private bool isAnimating;
 
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
-        else
-            Destroy(gameObject);
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
-        SetCursor(defaultCursor);
+        animatedCursors = new Dictionary<string, Texture2D[]>
+        {
+            { "Interact", interactFrames },
+            { "Talk", talkFrames },
+            { "Inspect", inspectFrames },
+            { "Teleport", teleportFrames }
+        };
+
+        SetDefault();
     }
 
-    public void SetCursor(Texture2D cursor)
+    private void Update()
     {
-        if (currentCursor == cursor) return; // avoid redundant calls
-        Cursor.SetCursor(cursor, hotspot, CursorMode.Auto);
-        currentCursor = cursor;
+        if (!isAnimating || currentFrames == null || currentFrames.Length == 0)
+            return;
+
+        frameTimer += Time.deltaTime;
+        if (frameTimer >= frameRate)
+        {
+            frameTimer = 0f;
+            currentFrameIndex = (currentFrameIndex + 1) % currentFrames.Length;
+            Cursor.SetCursor(currentFrames[currentFrameIndex], hotspot, CursorMode.Auto);
+        }
     }
 
-    public void SetDefault() => SetCursor(defaultCursor);
-    public void SetInteract() => SetCursor(interactCursor);
-    public void SetTalk() => SetCursor(talkCursor);
-    public void SetInspect() => SetCursor(inspectCursor);
-    public void SetTeleport() => SetCursor(teleportCursor);
+    public void SetDefault()
+    {
+        isAnimating = false;
+        Cursor.SetCursor(defaultCursor, hotspot, CursorMode.Auto);
+    }
 
+    public void SetAnimated(string key)
+    {
+        if (!animatedCursors.ContainsKey(key) || animatedCursors[key].Length == 0)
+        {
+            Debug.LogWarning($"Cursor animation key '{key}' not found or empty.");
+            return;
+        }
+
+        currentFrames = animatedCursors[key];
+        currentFrameIndex = 0;
+        frameTimer = 0f;
+        isAnimating = true;
+
+        Cursor.SetCursor(currentFrames[0], hotspot, CursorMode.Auto);
+    }
+
+    // Optional helpers for specific types
+    public void SetInteract() => SetAnimated("Interact");
+    public void SetTalk() => SetAnimated("Talk");
+    public void SetInspect() => SetAnimated("Inspect");
+    public void SetTeleport() => SetAnimated("Teleport");
 }
