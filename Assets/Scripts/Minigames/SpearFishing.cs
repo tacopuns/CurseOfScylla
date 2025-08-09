@@ -3,28 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpearFishing : MonoBehaviour
+public class SpearFishing : Clickable
 {
-    public PowerMeter powerMeter;
-    
-    void Start()
+    [SerializeField] private GameObject minigameCanvas;
+    public override void OnClickableClicked()
     {
-
-    }
-
-    
-    void Update()
-    {
-
-    }
-    
-    
-
-    public void OnPointerClick(PointerEventData eventData) //click on a freak fish to activate power meter
-    {
-        if (powerMeter != null)
-        {
-            powerMeter.ActivateMeter();
-        }
+        minigameCanvas.SetActive(true);
     }
 }
